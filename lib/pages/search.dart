@@ -46,10 +46,15 @@ class _SearchPageState extends State<SearchPage> {
         textDirection: Directionality.of(context),
         child: TextField(
           keyboardType: TextInputType.text,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+          ),
           decoration: InputDecoration(
             hintText: "try something to search",
             hintStyle: TextStyle(color: Colors.black38),
+            isDense: true,
           ),
           onSubmitted: (String val) async {
             // print(val);
