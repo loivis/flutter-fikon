@@ -11,6 +11,8 @@ class Book {
       wordCount;
   DateTime latestUpdate;
 
+  String get key => this.site + this.name + this.id;
+
   Book(
     this.id,
     this.name,

@@ -1,5 +1,7 @@
 import 'package:fikon/data/book.dart';
+import 'package:fikon/model/main.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class BookPage extends StatefulWidget {
   Book book;
@@ -25,9 +27,19 @@ class _BookPageState extends State<BookPage> {
       title: Text('书籍简介'),
       centerTitle: true,
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.favorite),
-          onPressed: () {},
+        ScopedModelDescendant<MainModel>(
+          builder: (context, child, model) => IconButton(
+                icon: model.isFavorite(widget.book.key)
+                    ? Icon(Icons.favorite, color: Colors.red)
+                    : Icon(Icons.favorite_border),
+                onPressed: () {
+                  if (model.isFavorite(widget.book.key)) {
+                    model.removeFavorite(widget.book.key);
+                  } else {
+                    model.addFavorite(widget.book);
+                  }
+                },
+              ),
         ),
         IconButton(
           icon: Icon(Icons.cloud_download),
