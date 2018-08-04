@@ -1,6 +1,5 @@
 import 'package:fikon/pages/favorite.dart';
 import 'package:fikon/pages/rank.dart';
-import 'package:fikon/pages/search.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -14,7 +13,6 @@ class _HomeState extends State<Home> {
   String activePage = "favorite";
   RankPage rank;
   FavoritePage favorite;
-  // SearchPage search;
   Map<String, Widget> pages;
 
   @override
@@ -22,11 +20,9 @@ class _HomeState extends State<Home> {
     super.initState();
     rank = RankPage();
     favorite = FavoritePage();
-    // search = SearchPage();
     pages = {
       "rank": rank,
       "favorite": favorite,
-      // "search": search,
     };
   }
 
@@ -64,40 +60,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  // Widget _drawer() {
-  //   return Drawer(
-  //     child: ListView(
-  //       padding: EdgeInsets.zero,
-  //       children: <Widget>[
-  //         DrawerHeader(
-  //           child: Text('从前有座山'),
-  //           decoration: BoxDecoration(
-  //             color: Colors.teal,
-  //           ),
-  //         ),
-  //         ListTile(
-  //           title: Text('讲'),
-  //           onTap: () {
-  //             Navigator.pop(context);
-  //           },
-  //         ),
-  //         ListTile(
-  //           title: Text('完'),
-  //           onTap: () {
-  //             Navigator.pop(context);
-  //           },
-  //         ),
-  //         ListTile(
-  //           title: Text('了'),
-  //           onTap: () {
-  //             Navigator.pop(context);
-  //           },
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   Widget _btmNavBar() {
     return BottomAppBar(
       color: Colors.teal[100],
@@ -129,17 +91,6 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-          // IconButton(
-          //   icon: Icon(Icons.search),
-          //   color: activePage == "search"
-          //       ? Theme.of(context).accentColor
-          //       : Colors.black,
-          //   onPressed: () {
-          //     setState(() {
-          //       activePage = "search";
-          //     });
-          //   },
-          // ),
         ],
       ),
     );
@@ -157,11 +108,6 @@ class _HomeState extends State<Home> {
         Icons.refresh,
         color: Theme.of(context).accentColor,
       );
-      // } else if (activePage == "search") {
-      //   _icon = Icon(
-      //     Icons.add,
-      //     color: Theme.of(context).accentColor,
-      //   );
     }
 
     return FloatingActionButton(

@@ -53,10 +53,11 @@ class Zongheng {
           .getElementsByTagName('span')[2]
           .text;
       var intro = detail.getElementsByClassName('book_intro')[0].text.trim();
-      // print(
-      //     '$id, $image, $name, $author, $intro, $progress, $category, $wordCount');
-      books.add(Book(id, name, this.site, link, author, intro, image, category,
-          progress, wordCount));
+
+      var book = Book(id, name, this.site, link, author, intro, image, category,
+          progress, wordCount, null);
+      print(book);
+      books.add(book);
     }
 
     print('return ${books.length} books from ${this.site} for ${keywords}');

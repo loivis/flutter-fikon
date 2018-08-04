@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'package:fikon/data/book.dart';
 import 'package:fikon/model/main.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class BookPage extends StatefulWidget {
-  Book book;
+  final Book book;
   BookPage(this.book);
 
   @override

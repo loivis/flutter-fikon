@@ -1,9 +1,7 @@
 import 'package:fikon/data/book.dart';
-import 'package:fikon/data/search.dart';
 import 'package:fikon/model/main.dart';
 import 'package:fikon/pages/book.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class SearchPage extends StatefulWidget {
@@ -87,20 +85,52 @@ class _SearchPageState extends State<SearchPage> {
     return ScopedModelDescendant<MainModel>(
       builder: (context, child, model) {
         if (model.searchProgress == 'ready') {
-          return Center(child: Text('ready to search'));
+          List<String> history = model.searchHistory;
+          if (history == null) {
+            model.readSearchHistory();
+            return Center(child: Text('ready to search'));
+          }
+          return ListView.builder(
+            itemCount: history.length,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Search History',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            )),
+                        ScopedModelDescendant<MainModel>(
+                            builder: (context, child, model) => IconButton(
+                                  icon: Icon(Icons.delete_forever),
+                                  onPressed: () {
+                                    model.resetSearchHistory();
+                                  },
+                                )),
+                      ],
+                    ));
+              }
+              return Text(history[index]);
+            },
+          );
         } else if (model.searchProgress == "searching") {
           return Center(child: CircularProgressIndicator());
         } else if (model.searchProgress == 'done') {
           return ListView.builder(
             itemCount: model.searchResult.length,
-            itemBuilder: _itemBuilder(model),
+            itemBuilder: _buildSearchResult(model),
           );
         }
       },
     );
   }
 
-  _itemBuilder(model) {
+  _buildSearchResult(model) {
     return (BuildContext context, int index) {
       Book book = model.searchResult[index];
       String desc = book.introduction.length > 44

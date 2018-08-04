@@ -18,6 +18,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   cached_network_image: any
   scoped_model: any
+  shared_preferences: any
 
 dev_dependencies:
   flutter_test:
