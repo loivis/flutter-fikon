@@ -11,7 +11,7 @@ class SearchModel extends Model {
   String _progress = 'ready';
   String get searchProgress => _progress;
 
-  List<String> _searchHistory;
+  List<String> _searchHistory = [];
   List<String> get searchHistory => _searchHistory;
 
   readSearchHistory() async {

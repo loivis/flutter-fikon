@@ -40,11 +40,7 @@ class FavoritePage extends StatelessWidget {
           title: Row(
             children: <Widget>[
               Text(book.name),
-              Container(
-                margin: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-                color: Colors.red,
-                child: Text('10+ New'),
-              ),
+              Icon(Icons.bookmark, color: Colors.red, size: 15.0),
             ],
           ),
           subtitle: Text(book.key),
