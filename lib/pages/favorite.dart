@@ -28,7 +28,7 @@ class FavoritePage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         var books = model.favorite.values.toList();
         if (index.isOdd) {
-          return Divider(color: Colors.teal[200]);
+          return Divider(color: Theme.of(context).backgroundColor);
         }
         var book = books[index ~/ 2];
         return ListTile(

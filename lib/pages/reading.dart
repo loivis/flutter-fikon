@@ -22,8 +22,20 @@ class ReadingPage extends StatelessWidget {
   List<Widget> _buildStackChildren(
       BuildContext context, Size size, MainModel model) {
     List<Widget> children = <Widget>[];
+    String text = "show me some text";
 
-    Widget content = Material(color: Colors.black12);
+    print(text.length);
+    print(size.width);
+    print(size.height);
+    Widget content = SafeArea(
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 15.0),
+          // maxLines: size.height ~/ 25.0,
+        ),
+      ),
+    );
 
     Widget touchLayer = Opacity(
       opacity: 0.0,
@@ -37,7 +49,7 @@ class ReadingPage extends StatelessWidget {
             Colors.green: () {
               print('back');
             },
-            Colors.blue: () {
+            Colors.indigo: () {
               print('forward');
             },
           };
@@ -52,7 +64,7 @@ class ReadingPage extends StatelessWidget {
                   } else if (j < 2 && i + j <= 2) {
                     color = Colors.green;
                   } else {
-                    color = Colors.blue;
+                    color = Colors.indigo;
                   }
 
                   Widget cell = GestureDetector(
@@ -87,7 +99,7 @@ class ReadingPage extends StatelessWidget {
           top: size.height - 100.0,
           width: size.width,
           child: BottomAppBar(
-              color: Colors.teal[100],
+              color: Theme.of(context).backgroundColor,
               child: Row(children: <Widget>[
                 FlatButton(onPressed: () {}, child: null)
               ]))),

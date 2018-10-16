@@ -39,7 +39,7 @@ class _SearchPageState extends State<SearchPage> {
     });
 
     _appBar = AppBar(
-      backgroundColor: Colors.teal[300],
+      backgroundColor: Theme.of(context).backgroundColor,
       title: Directionality(
         textDirection: Directionality.of(context),
         child: ScopedModelDescendant<MainModel>(
@@ -51,7 +51,7 @@ class _SearchPageState extends State<SearchPage> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+                      fontSize: 16.0,
                     ),
                     decoration: InputDecoration(
                       hintText: "try something to search",

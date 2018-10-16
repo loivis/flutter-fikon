@@ -29,10 +29,10 @@ class Fikon extends StatelessWidget {
   ThemeData _themeData() {
     // https://docs.flutter.io/flutter/material/ThemeData-class.html
     return ThemeData(
-      primaryColor: Colors.teal,
-      accentColor: Colors.purple,
-      backgroundColor: Colors.teal[100],
-      buttonColor: Colors.teal[100],
+      primaryColor: Colors.indigo,
+      accentColor: Colors.amber[800],
+      backgroundColor: Colors.indigo[200],
+      buttonColor: Colors.indigo[300],
       // primaryTextTheme: TextTheme(title: TextStyle(color: Colors.black)),
     );
   }

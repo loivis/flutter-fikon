@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
 
   Widget _btmNavBar() {
     return BottomAppBar(
-      color: Colors.teal[100],
+      color: Theme.of(context).buttonColor,
       shape: CircularNotchedRectangle(),
       notchMargin: 1.0,
       child: Row(
@@ -111,7 +111,7 @@ class _HomeState extends State<Home> {
     }
 
     return FloatingActionButton(
-      backgroundColor: Colors.teal[100],
+      backgroundColor: Theme.of(context).backgroundColor,
       elevation: 0.0,
       mini: true,
       child: _icon,

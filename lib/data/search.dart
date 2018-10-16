@@ -14,7 +14,7 @@ class Search {
     var books = <Book>[];
     var results = await Future.wait([
       Qidian().search(keywords),
-      // Zongheng().search(keywords),
+      Zongheng().search(keywords),
     ]);
     for (var r in results) {
       books.addAll(r);
